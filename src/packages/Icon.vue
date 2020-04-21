@@ -4,7 +4,6 @@
   </svg>
 </template>
 <script>
-import '../style/icon'
 export default {
   name: 's-icon',
   props: {
@@ -14,6 +13,9 @@ export default {
       default: '',
       required: true
     }
+  },
+  mounted () {
+    import('../style/icon').then(icon => {})
   }
 }
 </script>
