@@ -161,7 +161,11 @@ export default {
       border: 1px solid #f1f1f1;
       box-sizing: border-box;
       background: #ccc;
-      fill: #fff;
+      color: #fff;
+      cursor: pointer;
+      &:hover{
+        color: #409eff;
+      }
     }
   }
   &-row{

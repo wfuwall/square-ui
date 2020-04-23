@@ -12,6 +12,7 @@ export default {
       type: Number,
       default: 0
     },
+    // flex 布局下的水平排列方式
     justify: {
       type: String,
       default: 'start',

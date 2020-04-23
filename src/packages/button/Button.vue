@@ -148,8 +148,7 @@ export default {
     }
   }
   .icon{
-    width: 16px;
-    height: 16px;
+    font-size: 20px;
   }
   .icon+span{
     margin-left: 4px;
