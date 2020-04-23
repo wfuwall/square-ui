@@ -4,6 +4,7 @@
   </svg>
 </template>
 <script>
+import '../style/icon.js'
 export default {
   name: 's-icon',
   props: {
@@ -15,7 +16,8 @@ export default {
     }
   },
   mounted () {
-    import('../style/icon').then(icon => {})
+    // 这样引入打包会多出很多文件
+    // import('../style/icon').then(icon => {})
   }
 }
 </script>
