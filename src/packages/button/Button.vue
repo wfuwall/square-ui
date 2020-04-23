@@ -74,7 +74,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-@import '../style/_var.scss';
+@import '../../style/_var.scss';
 .s-button{
   position: relative;
   display: inline-flex;

@@ -41,3 +41,26 @@ $btn-color: #606266;
 $btn-border-color: #dcdfe6;
 $btn-background: #ecf5ff;
 $btn-active-color: #3a8ee6;
+
+
+// layout 定义媒体查询
+// !default 表示默认值。给一个未通过 !default 声明赋值的变量赋值，如果变量已经被赋值，不会再被重新赋值;但是如果变量还没有被赋值，则会被赋予新的值
+$--sm: 768px !default;
+$--md: 992px !default;
+$--lg: 1200px !default;
+$--xl: 1920px !default;
+// 定义映射
+$screenMap: (
+  "xs": ( max-width: $--sm - 1),
+  "sm": (min-width: $--sm ),
+  "md": (min-width: $--md),
+  "lg": ( min-width: $--lg),
+  "xl": ( min-width: $--xl)
+);
+// map-get($map,$key) 函数的作用是根据 $key 参数，返回 $key 在 $map 中对应的 value 值。如果 $key 不存在 $map中，将返回 null 值
+// @mixin 指令定义混入，inspect 函数可以产生输出字符串
+@mixin res($key) {
+  @media only screen and #{inspect(map-get($screenMap,$key))} {
+    @content; // 插槽
+  }
+}

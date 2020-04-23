@@ -29,6 +29,50 @@
         <s-icon :icon="item"></s-icon>
       </li>
     </ul>
+    <h3 class="app-subtitle">😢布局组件</h3>
+    <div class="app-row">
+      <s-row>
+        <s-col :span="24"><div class="grid-content bg-purple-dark"></div></s-col>
+      </s-row>
+      <s-row>
+        <s-col :span="12"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="12"><div class="grid-content bg-purple-light"></div></s-col>
+      </s-row>
+      <s-row>
+        <s-col :span="4"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple-light"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple-light"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple-light"></div></s-col>
+      </s-row>
+      <s-row :gutter="20">
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+      </s-row>
+      <s-row :gutter="20">
+        <s-col :span="4"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="16"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="4"><div class="grid-content bg-purple"></div></s-col>
+      </s-row>
+      <s-row :gutter="20">
+        <s-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="6" :offset="6"><div class="grid-content bg-purple"></div></s-col>
+      </s-row>
+      <s-row justify="center">
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :span="6"><div class="grid-content bg-purple-light"></div></s-col>
+        <s-col :span="6"><div class="grid-content bg-purple"></div></s-col>
+      </s-row>
+      <s-row :gutter="10">
+        <s-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple-light"></div></s-col>
+        <s-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11"><div class="grid-content bg-purple"></div></s-col>
+        <s-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></s-col>
+      </s-row>
+    </div>
   </div>
 </template>
 
@@ -68,6 +112,7 @@ export default {
 .app{
   display: flex;
   flex-direction: column;
+  padding-bottom: 180px;
   width: 100%;
   min-height: 100vh;
   background: #fff;
@@ -117,6 +162,27 @@ export default {
       box-sizing: border-box;
       background: #ccc;
       fill: #fff;
+    }
+  }
+  &-row{
+    .s-row{
+      margin-bottom: 20px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    .grid-content{
+      height: 45px;
+      border-radius: 4px;
+    }
+    .bg-purple-dark{
+      background: #99a9bf;
+    }
+    .bg-purple {
+      background: #d3dce6;
+    }
+    .bg-purple-light {
+      background: #e5e9f2;
     }
   }
 }
