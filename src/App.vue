@@ -73,6 +73,25 @@
         <s-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1"><div class="grid-content bg-purple-light"></div></s-col>
       </s-row>
     </div>
+    <h3 class="app-subtitle">😞容器组件</h3>
+    <div class="app-container">
+      <s-container>
+        <s-header>Header</s-header>
+        <s-main>Main</s-main>
+        <s-footer>Footer</s-footer>
+      </s-container>
+
+      <s-container>
+        <s-header>Header</s-header>
+        <s-container>
+          <s-aside width="200px">Aside</s-aside>
+          <s-container>
+            <s-main>Main</s-main>
+            <s-footer>Footer</s-footer>
+          </s-container>
+        </s-container>
+      </s-container>
+    </div>
   </div>
 </template>
 
@@ -116,6 +135,7 @@ export default {
   width: 100%;
   min-height: 100vh;
   background: #fff;
+  overflow: hidden;
   &-title{
     margin: 20px 0;
     font-size: 24px;
@@ -187,6 +207,29 @@ export default {
     }
     .bg-purple-light {
       background: #e5e9f2;
+    }
+  }
+  &-container{
+    & > .s-container {
+      margin-bottom: 40px;
+    }
+    .s-header, .s-footer {
+      background-color: #B3C0D1;
+      color: #333;
+      text-align: center;
+      line-height: 60px;
+    }
+    .s-aside {
+      background-color: #D3DCE6;
+      color: #333;
+      text-align: center;
+      line-height: 200px;
+    }
+    .s-main {
+      background-color: #E9EEF3;
+      color: #333;
+      text-align: center;
+      line-height: 160px;
     }
   }
 }

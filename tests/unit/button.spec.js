@@ -1,7 +1,7 @@
 import { shallowMount } from '@vue/test-utils' // vue 提供的快速测试的方法
 import { expect } from 'chai'
 
-import Button from '@/packages/Button.vue'
+import Button from '@/packages/button/Button.vue'
 import Icon from '@/packages/Icon.vue'
 
 describe('button.vue', () => {
@@ -27,7 +27,9 @@ describe('button.vue', () => {
         icon: 'edit'
       }
     })
-    expect(wrapper.find('use').attributes('href')).to.eq('#icon-edit')
+    const icon = wrapper.vm.$el.querySelector('.s-icon')
+    // expect(wrapper.find('use').attributes('href')).to.eq('#icon-edit')
+    expect(icon.className).contain('icon-edit')
   })
   it('3.测试loading时，按钮是否是禁用状态', () => {
     const wrapper = shallowMount(Button, {
@@ -38,7 +40,10 @@ describe('button.vue', () => {
         loading: true
       }
     })
-    expect(wrapper.find('use').attributes('href')).to.eq('#icon-loading')
+    console.log(wrapper, 11)
+    const icon = wrapper.vm.$el.querySelector('.s-icon')
+    // expect(wrapper.find('use').attributes('href')).to.eq('#icon-loading')
+    expect(icon.className).contain('icon-loading')
     expect(wrapper.classes()).contain('is-disabled') // 判断类名里是否包含 is-disabled 类
   })
   it('4.测试按钮点击是否正常', () => {

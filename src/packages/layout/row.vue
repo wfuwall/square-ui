@@ -35,7 +35,7 @@ export default {
         marginRight: `-${this.gutter / 2}px`
       }
       if (this.justify) {
-        const key = ['start', 'key'].includes(this.justify) ? `flex-${this.justify}` : this.justify
+        const key = ['start', 'end'].includes(this.justify) ? `flex-${this.justify}` : this.justify
         styles = {
           ...styles,
           justifyContent: key
