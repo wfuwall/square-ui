@@ -5,12 +5,12 @@ import Icon from './Icon'
 import ButtonGroup from './button/ButtonGroup'
 import Row from './layout/row'
 import Col from './layout/col'
-
 import Container from './container/Container'
 import Main from './container/Main'
 import Aside from './container/Aside'
 import Header from './container/Header'
 import Footer from './container/Footer'
+import Input from './input/Input'
 
 const install = (Vue) => {
   Vue.component(Button.name, Button)
@@ -18,12 +18,12 @@ const install = (Vue) => {
   Vue.component(ButtonGroup.name, ButtonGroup)
   Vue.component(Row.name, Row)
   Vue.component(Col.name, Col)
-
   Vue.component(Container.name, Container)
   Vue.component(Main.name, Main)
   Vue.component(Aside.name, Aside)
   Vue.component(Header.name, Header)
   Vue.component(Footer.name, Footer)
+  Vue.component(Input.name, Input)
 }
 
 // 有可能组件会通过 script 标签的形式引入，是不会默认调用 install 方法的

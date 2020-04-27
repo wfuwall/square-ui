@@ -1,5 +1,5 @@
 <template>
-  <i :class="['iconfont', 's-icon', iconClass]"></i>
+  <i :class="['iconfont', 's-icon', iconClass]" @click="$emit('click')"></i>
 </template>
 <script>
 import '../style/icon.css'

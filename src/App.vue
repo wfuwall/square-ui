@@ -92,6 +92,15 @@
         </s-container>
       </s-container>
     </div>
+    <h3 class="app-subtitle">😐输入框组件</h3>
+    <div class="app-input">
+      <s-input v-model="input.text1" type="number" placeholder="请输入手机号"></s-input> {{input.text1}}
+      <s-input :disabled="true"></s-input>
+      <s-input clearable v-model="input.text2"></s-input> {{input.text2}}
+      <s-input show-password v-model="input.text3"></s-input> {{input.text3}}
+      <s-input prefix-icon="edit"></s-input>
+      <s-input suffix-icon="search"></s-input>
+    </div>
   </div>
 </template>
 
@@ -101,7 +110,12 @@ export default {
   data () {
     return {
       iconList: ['arrow-left', 'arrow-right', 'view_off', 'message', 'search', 'loading', 'share', 'star', 'like', 'close', 'delete', 'password', 'user', 'notice', 'setting'],
-      isLoading: false // 是否开启按钮的 loading 状态呢
+      isLoading: false, // 是否开启按钮的 loading 状态呢
+      input: {
+        text1: '',
+        text2: '',
+        text3: ''
+      }
     }
   },
   methods: {
@@ -230,6 +244,15 @@ export default {
       color: #333;
       text-align: center;
       line-height: 160px;
+    }
+  }
+  &-input{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    & > .s-input{
+      margin-top: 20px;
     }
   }
 }
