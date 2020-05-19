@@ -1,6 +1,6 @@
 {
   "name": "square-ui",
-  "version": "0.1.5",
+  "version": "0.1.8",
   "description": "封装第一个轻量级UI组件库",
   "private": false,
   "main": "./dist/square-ui.umd.min.js",
