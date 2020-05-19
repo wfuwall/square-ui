@@ -154,7 +154,7 @@ export default {
     margin-left: 4px;
   }
   &-left{
-    svg {
+    i {
       order: 1;
     }
     span {
@@ -162,7 +162,7 @@ export default {
     }
   }
   &-right{
-    svg {
+    i {
       order: 2;
     }
     span {
