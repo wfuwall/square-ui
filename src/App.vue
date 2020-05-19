@@ -101,6 +101,51 @@
       <s-input prefix-icon="edit"></s-input>
       <s-input suffix-icon="search"></s-input>
     </div>
+    <h3 class="app-subtitle">🙂上传组件</h3>
+    <!-- <div class="app-upload">
+      <s-upload
+        name="avatar"
+        action="http://localhost:3000/upload"
+        :file-list="fileList"
+        :limit="3"
+        accept="image/jpg, image/jpeg"
+        :multiple="true"
+        :on-exceed="handleExceed"
+        :on-error="handleError"
+        :on-success="handleSuccess"
+        :on-progress="handleProgress"
+        :on-change="handleChange"
+        :before-upload="beforeUpload"
+        :on-remove="handleRemove"
+      >
+        <s-button type="primary" icon="">点击上传</s-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      </s-upload>
+    </div> -->
+    <div class="app-upload">
+      <s-upload
+        name="avatar"
+        action="http://localhost:3000/upload"
+        :file-list="fileList1"
+        :show-file-list="false"
+        :limit="3"
+        accept="image/jpg, image/jpeg"
+        :multiple="true"
+        :drag="true"
+        :on-exceed="handleExceed"
+        :on-error="handleError"
+        :on-success="handleSuccess"
+        :on-progress="handleProgress"
+        :on-change="handleChange"
+        :before-upload="beforeUpload"
+        :on-remove="handleRemove"
+      >
+      <img :src="fileList1[0].url" class="avatar" v-if="fileList1.length">
+      <div class="upload-avatar" v-else>
+        <s-icon icon='plus'></s-icon>
+      </div>
+      </s-upload>
+    </div>
   </div>
 </template>
 
@@ -115,7 +160,12 @@ export default {
         text1: '',
         text2: '',
         text3: ''
-      }
+      },
+      fileList: [
+        { url: 'xxx', name: 'avatar1' },
+        { url: 'xxx', name: 'avatar2' }
+      ], // 上传的列表
+      fileList1: []
     }
   },
   methods: {
@@ -136,6 +186,44 @@ export default {
           this.isLoading = false
         }
       }, 1000)
+    },
+    // 处理上传超出个数限制
+    handleExceed () {
+
+    },
+    // 处理上传失败
+    handleError () {
+
+    },
+    // 处理上传成功
+    handleSuccess (res) {
+      // console.log(res, 'handleSuccess')
+      // this.fileList1 = JSON.parse(res) // 这里获得的结果不能重新赋值给 fileList1
+    },
+    // 上传过程中
+    handleProgress (event, file) {
+      // console.log(event, file, 'handleProgress')
+    },
+    // 上传文件改变时
+    handleChange (file) {
+      // console.log(file, '改变的文件')
+    },
+    // 上传之前
+    beforeUpload (file) {
+      // console.log(file, '上传之前')
+      if (file.size / 1024 > 500) {
+        console.log('文件最大不能超过500kb')
+        return false
+      }
+      if (!['jpg', 'jpeg'].includes(file.name.split('.')[1])) {
+        console.log('上传的图片必须是jpg或者jpeg格式的')
+        return false
+      }
+      return true
+    },
+    // 删除操作
+    handleRemove (file, fileList) {
+      return confirm(`确定删除${file.name}?`)
     }
   }
 }
@@ -253,6 +341,32 @@ export default {
     flex-wrap: wrap;
     & > .s-input{
       margin-top: 20px;
+    }
+  }
+  &-upload{
+    padding-left: 20px;
+    margin: 20px 0;
+    width: 360px;
+    border-bottom: 1px solid #f1f1f1;
+    .s-upload-list{
+      margin-top: 14px;
+    }
+    .upload-avatar{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 178px;
+      height: 178px;
+      border: 1px dashed #d9d9d9;
+      cursor: pointer;
+    }
+    .avatar{
+      width: 178px;
+      height: 178px;
+    }
+    .icon-plus{
+      font-size: 28px;
+      color: #8c939d;
     }
   }
 }

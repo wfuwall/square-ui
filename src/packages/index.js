@@ -11,6 +11,8 @@ import Aside from './container/Aside'
 import Header from './container/Header'
 import Footer from './container/Footer'
 import Input from './input/Input'
+import Upload from './upload/upload'
+import Progress from './progress/progress'
 
 const install = (Vue) => {
   Vue.component(Button.name, Button)
@@ -24,6 +26,8 @@ const install = (Vue) => {
   Vue.component(Header.name, Header)
   Vue.component(Footer.name, Footer)
   Vue.component(Input.name, Input)
+  Vue.component(Upload.name, Upload)
+  Vue.component(Progress.name, Progress)
 }
 
 // 有可能组件会通过 script 标签的形式引入，是不会默认调用 install 方法的
